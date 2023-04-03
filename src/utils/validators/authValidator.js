@@ -48,3 +48,16 @@ export const registerValidator = [
 
 	body('gender').not().isEmpty().isIn(Object.values(Gender)),
 ];
+
+export const loginValidator = [
+	body('email')
+		.not()
+		.isEmpty()
+		.withMessage('Please provide an email')
+		.isEmail()
+		.withMessage('Please provide a valid email'),
+	body('password')
+		.not()
+		.isEmpty()
+		.withMessage('Please provide a password'),
+];
