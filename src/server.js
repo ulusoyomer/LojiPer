@@ -12,6 +12,8 @@ import notfoundMiddleWare from './middlewares/notFound.js';
 
 import connectDB from './db/connectDB.js';
 
+import authRoutes from './routes/authRoutes.js';
+
 const app = express();
 dotenv.config();
 
@@ -24,6 +26,12 @@ app.use(express.json());
 app.use(helmet());
 app.use(xss());
 app.use(ExpressMongoSanitize());
+
+app.get('/', (req, res) => {
+	res.json({ message: 'Welcome to the Lojiper API' });
+});
+
+app.use('/api/v1/auth', authRoutes);
 
 app.use(notfoundMiddleWare);
 app.use(errorHandlerMiddleware);
