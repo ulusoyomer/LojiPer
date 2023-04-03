@@ -36,8 +36,8 @@ export const registerValidator = [
 		.not()
 		.isEmpty()
 		.withMessage('Please provide a password')
-		.isLength({ min: 6 })
-		.withMessage('Password must be at least 6 characters'),
+		.isLength({ min: 5 })
+		.withMessage('Password must be at least 5 characters'),
 
 	body('passwordConfirmation').custom((value, { req }) => {
 		if (value !== req.body.password) {
@@ -56,8 +56,5 @@ export const loginValidator = [
 		.withMessage('Please provide an email')
 		.isEmail()
 		.withMessage('Please provide a valid email'),
-	body('password')
-		.not()
-		.isEmpty()
-		.withMessage('Please provide a password'),
+	body('password').not().isEmpty().withMessage('Please provide a password'),
 ];

@@ -2,6 +2,7 @@ import User from '../models/User.js';
 import { validationResult } from 'express-validator';
 import { StatusCodes } from 'http-status-codes';
 import { ValidationErrors, UnAuthenticatedErrors } from '../errors/index.js';
+import setCookies from '../utils/setCookie.js';
 
 const login = async (req, res) => {
 	const error = validationResult(req);
@@ -26,7 +27,8 @@ const login = async (req, res) => {
 	const token = user.createJWT();
 	user.password = undefined;
 
-	res.status(StatusCodes.OK).json({ token, user });
+	setCookies(res, token);
+	res.status(StatusCodes.OK).json({ user });
 };
 
 const register = async (req, res) => {
@@ -47,8 +49,9 @@ const register = async (req, res) => {
 	});
 
 	const token = user.createJWT();
-
-	res.status(StatusCodes.CREATED).json({ token, user });
+	setCookies(res, token);
+	user.password = undefined;
+	res.status(StatusCodes.CREATED).json({ user });
 };
 
 export { login, register };

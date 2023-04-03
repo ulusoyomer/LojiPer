@@ -1,0 +1,138 @@
+[
+	{
+		"price": 237.16,
+		"start_time": "2:41",
+		"end_time": "15:25",
+		"from": "istanbul",
+		"to": "van",
+		"company_name": "Schowalter Group",
+		"total_seats": 30,
+		"seats": [
+			{
+				"seat_number": 1,
+				"user": {
+					"name": "Bobette",
+					"lastName": "Whorf",
+					"age": 52,
+					"gender": "Female",
+					"phone": "285-836-1094",
+					"email": "bwhorf0@goo.gl"
+				}
+			},
+			{
+				"seat_number": 3,
+				"user": {
+					"name": "Engelbert",
+					"lastName": "Shawl",
+					"age": 47,
+					"gender": "Male",
+					"phone": "619-678-2276",
+					"email": "eshawl1@rakuten.co.jp"
+				}
+			},
+			{
+				"seat_number": 7,
+				"user": {
+					"name": "Gweneth",
+					"lastName": "Cosens",
+					"age": 44,
+					"gender": "Female",
+					"phone": "884-789-8687",
+					"email": "gcosens7@ow.ly"
+				}
+			},
+			{
+				"seat_number": 5,
+				"user": {
+					"name": "Borden",
+					"lastName": "Balser",
+					"age": 50,
+					"gender": "Male",
+					"phone": "716-644-0782",
+					"email": "bbalser6@biblegateway.com"
+				}
+			}
+		]
+	},
+	{
+		"price": 49.57,
+		"start_time": "3:49",
+		"end_time": "14:39",
+		"from": "istanbul",
+		"to": "ankara",
+		"company_name": "Predovic, Gibson and Tillman",
+		"total_seats": 20,
+		"seats": [
+			{
+				"seat_number": 1,
+				"$user": "642b2b3eebf5425c12894877"
+			},
+			{
+				"seat_number": 3,
+				"$user": "642b2b3eebf5425c12894878"
+			},
+			{
+				"seat_number": 7,
+				"$user": "642b2b3eebf5425c12894879"
+			},
+			{
+				"seat_number": 5,
+				"$user": "642b2b3eebf5425c1289487e"
+			}
+		]
+	},
+	{
+		"price": 238.97,
+		"start_time": "3:14",
+		"end_time": "15:38",
+		"from": "ankara",
+		"to": "izmir",
+		"company_name": "Mayert, Halvorson and Streich",
+		"total_seats": 20,
+		"seats": [
+			{
+				"seat_number": 1,
+				"$user": "642b2b3eebf5425c12894877"
+			},
+			{
+				"seat_number": 3,
+				"$user": "642b2b3eebf5425c12894878"
+			},
+			{
+				"seat_number": 7,
+				"$user": "642b2b3eebf5425c12894879"
+			},
+			{
+				"seat_number": 5,
+				"$user": "642b2b3eebf5425c1289487e"
+			}
+		]
+	},
+	{
+		"price": 286.82,
+		"start_time": "2:43",
+		"end_time": "14:00",
+		"from": "ankara",
+		"to": "trabzon",
+		"company_name": "Schoen, Rosenbaum and Parisian",
+		"total_seats": 20,
+		"seats": [
+			{
+				"seat_number": 1,
+				"$user": "642b2b3eebf5425c12894877"
+			},
+			{
+				"seat_number": 3,
+				"$user": "642b2b3eebf5425c12894878"
+			},
+			{
+				"seat_number": 7,
+				"$user": "642b2b3eebf5425c12894879"
+			},
+			{
+				"seat_number": 5,
+				"$user": "642b2b3eebf5425c1289487e"
+			}
+		]
+	}
+]
