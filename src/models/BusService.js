@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const BusServiceSchema = new mongoose.Schema({
+	_id: mongoose.Schema.Types.ObjectId,
 	company_name: {
 		type: String,
 		required: [true, 'Please provide a company name'],
