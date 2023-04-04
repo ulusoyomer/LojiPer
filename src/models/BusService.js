@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import User from './User.js';
 
 const BusServiceSchema = new mongoose.Schema({
 	company_name: {
@@ -33,12 +32,8 @@ const BusServiceSchema = new mongoose.Schema({
 		type: [
 			{
 				user: {
-					name: String,
-					lastName: String,
-					age: Number,
-					gender: String,
-					phone: String,
-					email: String,
+					type: mongoose.Schema.Types.ObjectId,
+					ref: 'User',
 				},
 				seat_number: Number,
 			},

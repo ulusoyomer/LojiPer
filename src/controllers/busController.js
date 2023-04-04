@@ -6,7 +6,6 @@ const getAllBusServices = async (req, res) => {
 
 	const queryObject = { from: from.toLowerCase() };
 	if (to) queryObject.to = to.toLowerCase();
-	console.log(queryObject);
 
 	const busServices = await BusService.find(queryObject)
 		.sort({

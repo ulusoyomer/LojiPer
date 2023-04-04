@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const UserSchema = new mongoose.Schema({
+	_id: mongoose.Schema.Types.ObjectId,
 	name: {
 		type: String,
 		required: [true, 'Please provide a name'],
@@ -47,6 +48,9 @@ UserSchema.pre('save', async function () {
 	if (!this.isModified('password')) return;
 	const salt = await bcrypt.genSalt(10);
 	this.password = await bcrypt.hash(this.password, salt);
+	if (this.isNew) {
+		this._id = new mongoose.Types.ObjectId();
+	}
 });
 
 UserSchema.methods.createJWT = function () {
