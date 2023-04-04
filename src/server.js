@@ -15,6 +15,7 @@ import connectDB from './db/connectDB.js';
 
 import authRoutes from './routes/authRoutes.js';
 import busServiceRoutes from './routes/busServiceRoute.js';
+import buyTicketRoutes from './routes/buyTicketRoute.js';
 
 const app = express();
 dotenv.config();
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/buses', busServiceRoutes);
+app.use('/api/v1/buy', buyTicketRoutes);
 
 app.use(notfoundMiddleWare);
 app.use(errorHandlerMiddleware);

@@ -1,5 +1,6 @@
 import BusService from '../models/BusService.js';
 import { StatusCodes } from 'http-status-codes';
+import { ResourceNotFoundErrors, BadRequestErrors } from '../errors/index.js';
 
 const getAllBusServices = async (req, res) => {
 	const { from, to } = req.params;
@@ -20,16 +21,10 @@ const getAllBusServices = async (req, res) => {
 			'company_name',
 		]);
 	if (!busServices) {
-		return res.status(StatusCodes.NOT_FOUND).json({
-			success: false,
-			message: 'No bus services found',
-		});
+		throw new BadRequestErrors('Wrong trip from or to provided');
 	}
 	if (busServices.length === 0) {
-		return res.status(StatusCodes.NOT_FOUND).json({
-			success: true,
-			message: 'No bus services found',
-		});
+		throw new ResourceNotFoundErrors('No bus services found');
 	}
 	res.status(StatusCodes.OK).json({ busServices });
 };
@@ -37,27 +32,15 @@ const getAllBusServices = async (req, res) => {
 const getTripScheduleInfo = async (req, res) => {
 	const { from, id } = req.params;
 	if (!id || !from) {
-		return res.status(StatusCodes.BAD_REQUEST).json({
-			success: false,
-			message: 'No trip id provided',
-		});
+		throw new BadRequestErrors('No trip id provided');
 	}
 	const queryObject = { from, _id: id };
-	const busService = await BusService.find(queryObject).populate(
-		'seats.user',
-		'gender'
-	);
+	const busService = await BusService.find(queryObject);
 	if (!busService) {
-		return res.status(StatusCodes.NOT_FOUND).json({
-			success: false,
-			message: 'No bus service found',
-		});
+		throw new BadRequestErrors('Wrong trip id or from provided');
 	}
-	if (busServices.length === 0) {
-		return res.status(StatusCodes.NOT_FOUND).json({
-			success: true,
-			message: 'No bus services found',
-		});
+	if (busService.length === 0) {
+		throw new ResourceNotFoundErrors('No bus services found');
 	}
 	res.status(StatusCodes.OK).json({ busService });
 };

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Gender from '../utils/enums/Gender.js';
 
 const BusServiceSchema = new mongoose.Schema({
 	_id: mongoose.Schema.Types.ObjectId,
@@ -32,13 +33,22 @@ const BusServiceSchema = new mongoose.Schema({
 	seats: {
 		type: [
 			{
-				user: {
-					type: mongoose.Schema.Types.ObjectId,
-					ref: 'User',
+				name: {
+					type: String,
+					required: [true, 'Please provide a name'],
 				},
-				seat_number: Number,
+				gender: {
+					type: String,
+					enum: [...Object.values(Gender)],
+					required: [true, 'Please provide a gender'],
+				},
+				seat_number: {
+					type: Number,
+					required: [true, 'Please provide a seat number'],
+				},
 			},
 		],
+		default: [],
 	},
 });
 
