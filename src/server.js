@@ -8,15 +8,20 @@ import cors from 'cors';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 
+// Middlewares
 import errorHandlerMiddleware from './middlewares/errorHandler.js';
 import notfoundMiddleWare from './middlewares/notFound.js';
 
+// Database
 import connectDB from './db/connectDB.js';
 
+// Routes
 import authRoutes from './routes/authRoutes.js';
 import busServiceRoutes from './routes/busServiceRoute.js';
 import buyTicketRoutes from './routes/buyTicketRoute.js';
+import profileRoutes from './routes/profileRoutes.js';
 
+// App
 const app = express();
 dotenv.config();
 
@@ -38,6 +43,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/buses', busServiceRoutes);
 app.use('/api/v1/buy', buyTicketRoutes);
+app.use('/api/v1/profile', profileRoutes);
 
 app.use(notfoundMiddleWare);
 app.use(errorHandlerMiddleware);

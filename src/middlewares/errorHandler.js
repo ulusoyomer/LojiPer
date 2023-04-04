@@ -1,7 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 
 const errorHandlerMiddleware = (err, req, res, next) => {
-	const { INTERNAL_SERVER_ERROR } = StatusCodes;
 	console.log(err);
 	if (err.kind === 'ObjectId') {
 		err.statusCode = StatusCodes.NOT_FOUND;
