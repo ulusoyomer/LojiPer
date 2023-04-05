@@ -1,0 +1,28 @@
+[
+	{
+		"_id": "642d9002bae302094eceb5f5",
+		"bus": "642c17c2fc13ae3ec4f4d62b",
+		"user": "642cb9641435b94dc275cd5c",
+		"seats": [
+			{
+				"seat_number": 8,
+				"name": "Test2",
+				"gender": "Male",
+				"_id": "642d9002bae302094eceb5f6"
+			},
+			{
+				"seat_number": 2,
+				"name": "Test1",
+				"gender": "Male",
+				"_id": "642d9002bae302094eceb5f7"
+			},
+			{
+				"seat_number": 4,
+				"name": "Test1",
+				"gender": "Female",
+				"_id": "642d9002bae302094eceb5f8"
+			}
+		],
+		"__v": 0
+	}
+]

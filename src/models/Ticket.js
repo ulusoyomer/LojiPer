@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import Gender from '../utils/enums/Gender.js';
 
 const TicketSchema = new mongoose.Schema({
+	_id: mongoose.Schema.Types.ObjectId,
 	bus: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'BusService',
@@ -36,6 +37,12 @@ const TicketSchema = new mongoose.Schema({
 		],
 		required: [true, 'Please provide a seat'],
 	},
+});
+
+TicketSchema.pre('save', async function () {
+	if (this.isNew) {
+		this._id = new mongoose.Types.ObjectId();
+	}
 });
 
 export default mongoose.model('Ticket', TicketSchema);

@@ -1,0 +1,13 @@
+[
+	{
+		"_id": "642cb9641435b94dc275cd5c",
+		"name": "ömer",
+		"lastName": "ulusoy",
+		"age": 25,
+		"phone": "05333333333",
+		"email": "test@test.com",
+		"password": "$2a$10$z2sQidj1eriVnIsIGkPhBOD0cEpcJn66tLo6cWfu4QxxjVkwb8dxm",
+		"gender": "Male",
+		"__v": 0
+	}
+]

@@ -7,9 +7,14 @@
 3. `.env` dosyasının içerisinde MongoDB bağlantı URL'si `MONGO_URI` ve token oluşturulabilmesi için `JWT_SECRET` alanları girilmelidir.
 4. Projeklasörü içinde terminal ekranında `npm i` komutu çalıştırılmalıdır. Bu komut projenin ihtiyaç duyduğu paketleri indirecektir.
 5. Paketler indirildikten sonra terminal ekranında `npm run seed` komutu çalıştırılmalıdır. Bu komut veritabanına gerekli olan verileri ekleyecektir.
-6. Bu adımların tamamı başarıyla tamamlandıktan sonra terminal ekranına `npm run dev` komutu girilerek projeyi çalıştırabilirsiniz.
+6. Veri tabanı içerisine bir test kullanıcısı, bu kullanıcının aldığı bir bileti ve 4 farklı sefer oluşturulacaktır.
+7. Bu adımların tamamı başarıyla tamamlandıktan sonra terminal ekranına `npm run dev` komutu girilerek projeyi çalıştırabilirsiniz.
 
 ## Özellikler
+
+Test Kullanıcısı Bilgileri <br>
+email : test@test.com
+password : secret123
 
 ## Kayıt Olma - Giriş Yapma
 
@@ -117,7 +122,9 @@ Diğer sefer endpointlerinin döndürdüğü veriler aynı formatta ve JSON form
 
 ### Örnek JSON formatında bulunan sefer detay
 
-http://localhost:3000/api/v1/buses/istanbul/schedule/642c17c2fc13ae3ec4f4d62b
+http://localhost:3000/api/v1/buses/istanbul/schedule/642c17c2fc13ae3ec4f4d62b <br>
+Bu linkteki id verisi veritabanında bulunan bir seferin \_id değeridir. <br>
+Projeyi kurulum adımlarını takip ederek çalıştırdıktan sonra bu linki kullanabilirsiniz.
 
 ```json
 {
@@ -175,7 +182,10 @@ http://localhost:3000/api/v1/buy/:bus_id <br>
 
 Bu endpoint ile kullanıcılar belirtilen sefere ait bir veya birden fazla koltuk satın alabilirler. İstek adresinde :bus_id parametresi kullanılmalıdır ve bu parametre, veri tabanında busservices koleksiyonu altında bulunan seferlerin \_id değerini almalıdır.<br>
 
-Örnek bir istek şu şekilde olabilir: POST http://localhost:3000/api/v1/buy/60fc828557c0e30b2d200c92
+Örnek bir istek şu şekilde olabilir: POST http://localhost:3000/api/v1/buy/642c17c2fc13ae3ec4f4d62c <br>
+
+Bu linkteki id verisi veritabanında bulunan İstanbul, Ankara seferinin \_id değeridir. <br>
+Projeyi kurulum adımlarını takip ederek çalıştırdıktan sonra bu linki kullanabilirsiniz.
 
 İstek gövdesinde, "seats" anahtarının altında bir dizi koltuk nesnesi belirtilmelidir. Her bir koltuk nesnesi, "name", "gender" ve "seat_number" özelliklerine sahip olmalıdır.
 
@@ -212,6 +222,10 @@ Eğer bilet alma işlemi başarısız olursa, hata mesajı döndürülür. Bu ha
 Biletin detaylı bilgileri için, http://localhost:3000/api/v1/profile/tickets/:ticket_id endpoint'ine GET isteği yapılabilir. ticket_id kısmına, veritabanında tickets koleksiyonunun altında bulunan biletlerin \_id verisi yazılmalıdır.
 
 ### Örnek JSON formatında bilet detayı:
+
+http://localhost:3000/api/v1/profile/tickets/642d9002bae302094eceb5f5 <br>
+Bu linkteki id verisi veritabanında bulunan test user adına, İstanbul'dan Van'a giden bir sefer için alınmış bir biletin \_id değeridir <br>
+Projeyi kurulum adımlarını takip ederek çalıştırdıktan sonra bu linki kullanabilirsiniz.
 
 ```json
 {
