@@ -7,6 +7,7 @@ import {
 
 const router = Router();
 
+router.route('/').get(authMiddleware, getAllBusServices);
 router.route('/:from').get(authMiddleware, getAllBusServices);
 router.route('/:from/:to').get(authMiddleware, getAllBusServices);
 router.route('/:from/schedule/:id').get(authMiddleware, getTripScheduleInfo);

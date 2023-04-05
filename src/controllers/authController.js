@@ -38,6 +38,10 @@ const register = async (req, res) => {
 	}
 
 	const { name, lastName, age, phone, email, password, gender } = req.body;
+	const temp = await User.findOne({ email });
+	if (temp) {
+		throw new ValidationErrors('Email already exists');
+	}
 	const user = await User.create({
 		name,
 		lastName,

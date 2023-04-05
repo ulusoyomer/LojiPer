@@ -5,8 +5,9 @@ import { ResourceNotFoundErrors, BadRequestErrors } from '../errors/index.js';
 const getAllBusServices = async (req, res) => {
 	const { from, to } = req.params;
 
-	const queryObject = { from };
-	if (to) queryObject.to = to.toLowerCase();
+	const queryObject = {};
+	if (from) queryObject.from = from;
+	if (to) queryObject.to = to;
 
 	const busServices = await BusService.find(queryObject)
 		.sort({

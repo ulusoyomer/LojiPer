@@ -2,21 +2,17 @@ import { StatusCodes } from 'http-status-codes';
 import Ticket from '../models/Ticket.js';
 import BusService from '../models/BusService.js';
 import { BadRequestErrors } from '../errors/index.js';
+import { validationResult } from 'express-validator';
 
 export const buyTicket = async (req, res) => {
+	const error = validationResult(req);
+	if (!error.isEmpty()) {
+		throw new BadRequestErrors('Validation failed', error.array());
+	}
 	const { bus_id } = req.params;
 	const { seats } = req.body;
 	if (!bus_id && !seats) {
 		throw new BadRequestErrors('No bus id or seat number provided');
-	}
-	if (!(seats instanceof Array)) {
-		throw new BadRequestErrors('Seats must be an array');
-	}
-	if (seats.length === 0) {
-		throw new BadRequestErrors('No seat provided');
-	}
-	if (seats.length > 5) {
-		throw new BadRequestErrors('You can only buy 5 tickets at a time');
 	}
 
 	seats.forEach((seat) => {
