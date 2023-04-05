@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "11711f56-4c54-4d19-ae1a-9a7284a989c7",
+		"name": "Lojiper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22748213"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"ömer\",\r\n    \"lastName\":\"ulusoy\",\r\n    \"gender\":\"Male\",\r\n    \"phone\":\"05333333333\",\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"secret123\",\r\n    \"passwordConfirmation\":\"secret123\",\r\n    \"age\":\"25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"secret123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bus Services",
+			"item": [
+				{
+					"name": "Get All Buses From City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/buses/istanbul",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"buses",
+								"istanbul"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bus Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/buses/istanbul/schedule/642c17c2fc13ae3ec4f4d62b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"buses",
+								"istanbul",
+								"schedule",
+								"642c17c2fc13ae3ec4f4d62b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Buses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/buses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"buses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Buy New Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"seats\":[\r\n        {\r\n            \"name\":\"Test2\",\r\n            \"gender\":\"Male\",\r\n            \"seat_number\":\"8\"\r\n        },\r\n        {\r\n            \"name\":\"Test1\",\r\n            \"gender\":\"Male\",\r\n            \"seat_number\":\"2\"\r\n        },\r\n        {\r\n            \"name\":\"Test1\",\r\n            \"gender\":\"Female\",\r\n            \"seat_number\":\"4\"\r\n        }\r\n        \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/buy/642c17c2fc13ae3ec4f4d62c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"buy",
+								"642c17c2fc13ae3ec4f4d62c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/profile/tickets",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profile",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/profile/tickets/642c62659be019dc32dab41a",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profile",
+								"tickets",
+								"642c62659be019dc32dab41a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

@@ -10,13 +10,15 @@
 6. Veri tabanı içerisine bir test kullanıcısı, bu kullanıcının aldığı bir bileti ve 4 farklı sefer oluşturulacaktır.
 7. Bu adımların tamamı başarıyla tamamlandıktan sonra terminal ekranına `npm run dev` komutu girilerek projeyi çalıştırabilirsiniz.
 
-## Özellikler
+## Bilgilendirme
 
 Test Kullanıcısı Bilgileri <br>
 email : test@test.com
 password : secret123
 
-## Kayıt Olma - Giriş Yapma
+Postman Klasörü Altında Postman İçin Hazırlanmış Örnek İstekler Bulunmaktadır.
+
+### Kayıt Olma - Giriş Yapma
 
 -  Uygulamada işlemlerin yapılabilmesi için kullanıcı girişi yapılması zorunludur.
 -  Giriş yapıldıktan sonra `lojiper_token` isminde bir cookie oluşturulur ve içine jsonwebtoken verisi yerleştirilir.
@@ -213,7 +215,7 @@ Projeyi kurulum adımlarını takip ederek çalıştırdıktan sonra bu linki ku
 }
 ```
 
-Eğer bilet alma işlemi başarılı bir şekilde tamamlanırsa, bilet objesi döndürülür. Bu obje, biletin temel bilgilerini içerir.
+Eğer bilet alma işlemi başarılı bir şekilde tamamlanırsa, seferdeki koltuklar güncellenir ve bilet objesi döndürülür. Bu obje, biletin temel bilgilerini içerir.
 
 Eğer bilet alma işlemi başarısız olursa, hata mesajı döndürülür. Bu hata mesajı, bilet alırken oluşan hataları içerir.
 
